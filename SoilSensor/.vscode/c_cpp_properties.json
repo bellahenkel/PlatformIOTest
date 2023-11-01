@@ -1,0 +1,60 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "/Users/bella/Documents/GitHub/PlatformIOTest/SoilSensor/include",
+                "/Users/bella/Documents/GitHub/PlatformIOTest/SoilSensor/src",
+                "/Users/bella/Documents/GitHub/PlatformIOTest/SoilSensor/.pio/libdeps/mayfly/Adafruit ADS1X15",
+                "/Users/bella/Documents/GitHub/PlatformIOTest/SoilSensor/.pio/libdeps/mayfly/Adafruit BusIO",
+                "/Users/bella/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "/Users/bella/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                "/Users/bella/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "/Users/bella/.platformio/packages/framework-arduino-avr/variants/mayfly",
+                "/Users/bella/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "/Users/bella/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "/Users/bella/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/Users/bella/Documents/GitHub/PlatformIOTest/SoilSensor/include",
+                    "/Users/bella/Documents/GitHub/PlatformIOTest/SoilSensor/src",
+                    "/Users/bella/Documents/GitHub/PlatformIOTest/SoilSensor/.pio/libdeps/mayfly/Adafruit ADS1X15",
+                    "/Users/bella/Documents/GitHub/PlatformIOTest/SoilSensor/.pio/libdeps/mayfly/Adafruit BusIO",
+                    "/Users/bella/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "/Users/bella/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    "/Users/bella/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "/Users/bella/.platformio/packages/framework-arduino-avr/variants/mayfly",
+                    "/Users/bella/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "/Users/bella/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "/Users/bella/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60111",
+                "ARDUINO_AVR_ENVIRODIY_MAYFLY",
+                "F_CPU=8000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "__AVR_ATmega1284P__",
+                ""
+            ],
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++11",
+            "compilerPath": "/Users/bella/.platformio/packages/toolchain-atmelavr/bin/avr-gcc",
+            "compilerArgs": [
+                "-mmcu=atmega1284p",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
