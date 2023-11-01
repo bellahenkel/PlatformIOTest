@@ -95,6 +95,51 @@ MaximDS3231 ds3231(1);
 //   or can be copied from the `menu_a_la_carte.ino` example
 
 
+  // ==========================================================================
+  //    Maxim DS18 One Wire Temperature Sensor
+  // ==========================================================================
+  #include <sensors/MaximDS18.h>
+
+  // OneWire Address [array of 8 hex characters]
+  // If only using a single sensor on the OneWire bus, you may omit the address
+  // DeviceAddress OneWireAddress1 = {0x28, 0xFF, 0xBD, 0xBA, 0x81, 0x16, 0x03, 0x0C};
+  const int8_t OneWirePower = sensorPowerPin;  // Pin to switch power on and off (-1 if unconnected)
+  const int8_t OneWireBus = 7;  // Pin attached to the OneWire Bus (-1 if unconnected) (D24 = A0)
+
+  // Create a Maxim DS18 sensor objects (use this form for a known address)
+  // MaximDS18 ds18(OneWireAddress1, OneWirePower, OneWireBus);
+
+  // Create a Maxim DS18 sensor object (use this form for a single sensor on bus with an unknown address)
+  MaximDS18 ds18(OneWirePower, OneWireBus);
+
+
+// ==========================================================================
+//  Bosch BME280 Environmental Sensor
+// ==========================================================================
+/** Start [bosch_bme280] */
+#include <sensors/BoschBME280.h>
+
+// NOTE: Use -1 for any pins that don't apply or aren't being used.
+const int8_t BME280Power = sensorPowerPin;  // Power pin
+uint8_t      BMEi2c_addr = 0x76;
+// The BME280 can be addressed either as 0x77 (Adafruit default) or 0x76 (Grove
+// default) Either can be physically mofidied for the other address
+
+// Create a Bosch BME280 sensor object
+BoschBME280 bme280(BME280Power, BMEi2c_addr);
+
+// Create four variable pointers for the BME280
+Variable* bme280Humid =
+    new BoschBME280_Humidity(&bme280, "12345678-abcd-1234-ef00-1234567890ab");
+Variable* bme280Temp =
+    new BoschBME280_Temp(&bme280, "12345678-abcd-1234-ef00-1234567890ab");
+Variable* bme280Press =
+    new BoschBME280_Pressure(&bme280, "12345678-abcd-1234-ef00-1234567890ab");
+Variable* bme280Alt =
+    new BoschBME280_Altitude(&bme280, "12345678-abcd-1234-ef00-1234567890ab");
+/** End [bosch_bme280] */
+
+
 // ==========================================================================
 //  Creating the Variable Array[s] and Filling with Variable Objects
 // ==========================================================================
@@ -102,7 +147,9 @@ MaximDS3231 ds3231(1);
 Variable* variableList[] = {
     new ProcessorStats_SampleNumber(&mcuBoard),
     new ProcessorStats_FreeRam(&mcuBoard),
-    new ProcessorStats_Battery(&mcuBoard), new MaximDS3231_Temp(&ds3231)
+    new ProcessorStats_Battery(&mcuBoard), new MaximDS3231_Temp(&ds3231),
+    new MaximDS18_Temp(&ds18),
+    //new BoschBME280(&bme280)
     // Additional sensor variables can be added here, by copying the syntax
     //   for creating the variable pointer (FORM1) from the
     //   `menu_a_la_carte.ino` example
