@@ -135,9 +135,9 @@ void setup() {
   }
 
   //LOW implies off for relay board
-  digitalWrite(pump_pin, LOW);
+  digitalWrite(pump_pin, HIGH);
   for(int pin = 0; pin < 3; pin++){
-    digitalWrite(solenoid_pins[pin], LOW);
+    digitalWrite(solenoid_pins[pin], HIGH);
   }
 
     //Begins serial communication with 9600 Baud
@@ -193,14 +193,14 @@ void loop() {
     //Careful now! If pin eight is used for a solenoid it triggers the relay sporadically if mayfly is restarted
 
     //Turn specified solenoid on for delay(seconds)
-    digitalWrite(active_solpin, HIGH);
+    digitalWrite(active_solpin, LOW);
      
 
-    digitalWrite(pump_pin, HIGH);
+    digitalWrite(pump_pin, LOW);
     delay(FLUSH_TIME);
   
 
-    digitalWrite(pump_pin, LOW);
+    digitalWrite(pump_pin, HIGH);
     delay(MEASUREMENT_TIME);
     Serial.print(hour);
     Serial.print(':');
@@ -217,7 +217,7 @@ void loop() {
     Serial.println("PPM ");
     
 
-    digitalWrite(active_solpin, LOW);
+    digitalWrite(active_solpin, HIGH);
 
     String dataRec = createDataRecord();
 
